@@ -1,0 +1,160 @@
+paths:
+  /api/sessions/login:
+    post:
+      summary: Iniciar sesión de usuario
+      tags:
+        - Sessions
+      responses:
+        200:
+          description: Sesión iniciada con éxito. Devuelve un token de sesión.
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+        401:
+          description: No autorizado. Credenciales inválidas.
+          schema:
+            type: object
+            properties:
+              mensaje:
+                type: string
+        500:
+          description: Error interno del servidor
+
+  /api/sessions/register:
+    post:
+      summary: Registrar nuevo usuario
+      tags:
+        - Sessions
+      responses:
+        200:
+          description: Registro exitoso.
+        400:
+          description: Solicitud incorrecta. El usuario ya existe.
+          schema:
+            type: object
+            properties:
+              mensaje:
+                type: string
+        500:
+          description: Error interno del servidor
+
+  /api/sessions/github:
+    get:
+      summary: Autenticación de GitHub
+      tags:
+        - Sessions
+      responses:
+        302:
+          description: Redirigiendo a GitHub para la autenticación.
+        500:
+          description: Error interno del servidor
+
+  /api/sessions/githubCallback:
+    get:
+      summary: Callback de GitHub
+      tags:
+        - Sessions
+      responses:
+        302:
+          description: Redirigiendo después de la autenticación en GitHub.
+        401:
+          description: No autorizado. Falló la autenticación en GitHub.
+          schema:
+            type: object
+            properties:
+              mensaje:
+                type: string
+        500:
+          description: Error interno del servidor
+
+  /api/sessions/logout:
+    get:
+      summary: Cerrar sesión de usuario
+      tags:
+        - Sessions
+      responses:
+        200:
+          description: Sesión cerrada con éxito.
+          schema:
+            type: object
+            properties:
+              mensaje:
+                type: string
+        500:
+          description: Error interno del servidor
+
+  /api/sessions/user:
+    get:
+      summary: Obtener detalles del usuario
+      tags:
+        - Sessions
+      responses:
+        200:
+          description: Detalles del usuario recuperados con éxito.
+          schema:
+            type: object
+            properties:
+              _id:
+                type: string
+              firstName:
+                type: string
+              lastName:
+                type: string
+              age:
+                type: number
+              email:
+                type: string
+              rol:
+                type: string
+              cart:
+                type: array
+              __v:
+                type: number
+        500:
+          description: Error interno del servidor
+        default:
+          description: No autorizado. Usuario no autenticado.
+          schema:
+            type: object
+            properties:
+              mensaje:
+                type: string
+
+  /api/sessions/current:
+    get:
+      summary: Obtener detalles del usuario actual (solo administradores)
+      tags:
+        - Sessions
+      responses:
+        200:
+          description: Detalles del usuario recuperados con éxito.
+          schema:
+            type: object
+            properties:
+              _id:
+                type: string
+              firstName:
+                type: string
+              lastName:
+                type: string
+              age:
+                type: number
+              email:
+                type: string
+              rol:
+                type: string
+              cart:
+                type: array
+              __v:
+                type: number
+        500:
+          description: Error interno del servidor
+        default:
+          description: No autorizado. Usuario no autenticado o no tiene privilegios de administrador.
+          schema:
+            type: object
+            properties:
+              mensaje:
+                type: string
