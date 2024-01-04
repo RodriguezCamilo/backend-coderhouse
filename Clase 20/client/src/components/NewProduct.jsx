@@ -86,6 +86,8 @@ const NewProduct = () => {
 
                     <Input type="text" variant="underlined" isRequired name="code" label="Code" />
 
+                    <Input type="text" variant="underlined" name="thumbnail" label="Thumbnail" />
+
                     {progress ? <Spinner color='primary' className='place-self-center' /> : <Button className='place-self-center' color='primary' type="submit">Submit</Button>}
 
                     {loginError && <Chip className='place-self-center' variant='bordered' color='danger'>{loginError}</Chip>}

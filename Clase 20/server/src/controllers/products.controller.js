@@ -88,9 +88,9 @@ export const deleteProduct = async (req, res) => {
 }
 
 export const postProduct = async (req, res) => {
-    const { title, description, stock, code, price, category } = req.body
+    const { title, description, stock, code, price, category, thumbnail } = req.body
     try {
-        const prod = await productModel.create({ title, description, stock, code, price, category })
+        const prod = await productModel.create({ title, description, stock, code, price, category, thumbnail })
         res.status(200).send(prod)
 
     } catch (error) {
