@@ -23,7 +23,7 @@ function App() {
         <header>
           <Nav />
         </header>
-        <main className="grid place-items-center justify-center min-h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
+        <main className="grid place-items-center justify-center h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
           <Routes>
             <Route path='/logout' element={<Logout />} />
             <Route path='/register' element={<Register />} />

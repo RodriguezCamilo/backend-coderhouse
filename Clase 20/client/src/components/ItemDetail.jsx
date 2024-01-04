@@ -1,13 +1,13 @@
 import ItemCount from "./ItemCount";
-import { Card, CardHeader, CardFooter, CardBody, Divider } from "@nextui-org/react";
+import { Card,  CardBody } from "@nextui-org/react";
 import { LoggedContext } from '../context/LoggedContext.jsx';
+import Carrousel from "./Carrousel.jsx";
 
 import { React, useContext } from 'react'
 
 function ItemDetail({ _id, title, description, price, stock, thumbnail }) {
 
   const { isLogged, userInfo, token } = useContext(LoggedContext)
-
   const onAdd = async (contador) => {
     const itemToAdd = {
       quantity: contador
@@ -36,14 +36,14 @@ function ItemDetail({ _id, title, description, price, stock, thumbnail }) {
 
 
   return (
-    <Card className="self-center max-w-[90vw] h-[70vh]">
-      <CardBody className=' text-center justify-center overflow-hidden grid grid-cols-2'>
-        <div>
-          <img className="rounded-lg aspect-square object-contain object-center" src={thumbnail[0]} alt="Foto del producto" />
+    <Card className="self-center max-w-[90vw] min-h-[80vh]">
+      <CardBody className=' text-center grid grid-cols-2 p-8 gap-8'>
+        <div className=" flex place-items-center">
+          <Carrousel imgs={thumbnail}/>
         </div>
-        <div className="flex flex-col gap-4">
-          <h2 className='text-3xl font-bold'>{title}</h2>
-          <p className="text-lg font-semibold">{description}</p>
+        <div className="flex flex-col gap-4 justify-between text-balance">
+          <h2 className='text-3xl font-bold text-balance'>{title}</h2>
+          <p className="text-lg font-semibold text-balance">{description}</p>
           <h3 className="text-5xl font-semibold" >${price}</h3>
           {isLogged ? <ItemCount stock={stock} onAdd={onAdd} /> : <b className="text-2xl underline font-semibold">Sign in to buy!</b>}
         </div>

@@ -16,12 +16,12 @@ export default function Nav() {
                     </Link>
                 </NavbarBrand>
                 <NavbarContent className="hidden sm:flex gap-4 " justify="center">
-                    <NavbarItem className='font-semibold text-lg hover:underline decoration-2 '>
+                    <NavbarItem className='font-semibold text-xl hover:underline decoration-2 '>
                         <Link color="foreground" to="/">
                             Home
                         </Link>
                     </NavbarItem>
-                    <NavbarItem className='font-semibold text-lg hover:underline decoration-2 '>
+                    <NavbarItem className='font-semibold text-xl hover:underline '>
                         <Link to="/products">
                             Shop
                         </Link>
@@ -39,24 +39,24 @@ export default function Nav() {
                             </svg></Link>
                         </NavbarItem>
                         {userRol == 'admin' && <NavbarItem className="hidden lg:flex">
-                            <Button className='font-semibold text-lg' as={Link} color="primary" to="/new-product" variant="flat">
+                            <Button className=' text-lg' as={Link} color="primary" to="/new-product" variant="flat">
                                 New product
                             </Button>
                         </NavbarItem>}
                         <NavbarItem className="hidden lg:flex">
-                            <Button className='font-semibold text-lg' as={Link} color="danger" to="/logout" variant="flat">
+                            <Button className=' text-lg' as={Link} color="danger" to="/logout" variant="flat">
                                 Log out
                             </Button>
                         </NavbarItem>
                     </NavbarContent>
                     : <NavbarContent justify="end">
                         <NavbarItem className="hidden lg:flex">
-                            <Button className='font-semibold text-lg' as={Link} color="primary" to="/login" variant="bordered">
+                            <Button className=' text-lg' as={Link} color="primary" to="/login" variant="bordered">
                                 Log in
                             </Button>
                         </NavbarItem>
                         <NavbarItem>
-                            <Button className='font-semibold text-lg' as={Link} color="primary" to="/register" variant="flat">
+                            <Button className=' text-lg' as={Link} color="primary" to="/register" variant="flat">
                                 Sign up
                             </Button>
                         </NavbarItem>
