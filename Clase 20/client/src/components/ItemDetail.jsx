@@ -4,7 +4,7 @@ import { LoggedContext } from '../context/LoggedContext.jsx';
 
 import { React, useContext } from 'react'
 
-function ItemDetail({ _id, title, description, price, stock }) {
+function ItemDetail({ _id, title, description, price, stock, thumbnail }) {
 
   const { isLogged, userInfo, token } = useContext(LoggedContext)
 
@@ -36,18 +36,18 @@ function ItemDetail({ _id, title, description, price, stock }) {
 
 
   return (
-    <Card className="h-[75vh] self-center w-[75vw]">
-      <CardHeader className='flex justify-center'>
-        <h2 className='text-3xl font-bold'>{title}</h2>
-      </CardHeader>
-      <CardBody className='flex text-center justify-center overflow-hidden'>
-        <p>{description}</p>
+    <Card className="self-center max-w-[90vw] h-[70vh]">
+      <CardBody className=' text-center justify-center overflow-hidden grid grid-cols-2'>
+        <div>
+          <img className="rounded-lg aspect-square object-contain object-center" src={thumbnail[0]} alt="Foto del producto" />
+        </div>
+        <div className="flex flex-col gap-4">
+          <h2 className='text-3xl font-bold'>{title}</h2>
+          <p className="text-lg font-semibold">{description}</p>
+          <h3 className="text-5xl font-semibold" >${price}</h3>
+          {isLogged ? <ItemCount stock={stock} onAdd={onAdd} /> : <b className="text-2xl underline font-semibold">Sign in to buy!</b>}
+        </div>
       </CardBody>
-      <CardFooter className='grid'>
-        <h3 className="text-2xl" >${price}</h3>
-        <Divider className="my-3" />
-        {isLogged ? <ItemCount stock={stock} onAdd={onAdd} /> : <b className="text-2xl">Sign in to buy!</b>}
-      </CardFooter>
     </Card>
   )
 }

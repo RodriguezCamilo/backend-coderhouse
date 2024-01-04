@@ -15,7 +15,7 @@ export const getProducts = async (req, res) =>{
             limit: parseInt(limit) || 8,
             page: parseInt(page) || 1,
             sort: {
-                price: sort || 1
+                price: sort || -1
             }
         }
 
@@ -33,7 +33,9 @@ export const getProducts = async (req, res) =>{
             prevLink: prods.hasPrevPage ? `http://${req.headers.host}${req.baseUrl}?limit=${options.limit}&page=${prods.prevPage}${link || ''}&sort=${options.sort.price}` : null,
             nextLink: prods.hasNextPage ? `http://${req.headers.host}${req.baseUrl}?limit=${options.limit}&page=${prods.nextPage}${link || ''}&sort=${options.sort.price}` : null
         }
+        console.log(respuesta)
         res.status(200).send({ respuesta: respuesta })
+        
     } catch (error) {
         res.status(400).send({ respuesta: 'Error en consultar productos', mensaje: error })
     }

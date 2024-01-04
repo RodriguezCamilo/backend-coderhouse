@@ -11,17 +11,17 @@ export default function Nav() {
         <nav>
             <Navbar isBordered className='font-semibold'>
                 <NavbarBrand>
-                    <Link color="foreground" to="/">
-                        <p className="font-bold text-xl text-inherit">KamShop</p>
+                    <Link color="foreground" className="font-bold text-3xl text-inherit" to="/">
+                        KamShop
                     </Link>
                 </NavbarBrand>
-                <NavbarContent className="hidden sm:flex gap-4" justify="center">
-                    <NavbarItem>
+                <NavbarContent className="hidden sm:flex gap-4 " justify="center">
+                    <NavbarItem className='font-semibold text-lg hover:underline decoration-2 '>
                         <Link color="foreground" to="/">
                             Home
                         </Link>
                     </NavbarItem>
-                    <NavbarItem>
+                    <NavbarItem className='font-semibold text-lg hover:underline decoration-2 '>
                         <Link to="/products">
                             Shop
                         </Link>
@@ -30,7 +30,7 @@ export default function Nav() {
                 {isLogged ?
                     <NavbarContent justify="end">
                         <NavbarItem className="hidden lg:flex">
-                            <Link to="/cart"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                            <Link to="/cart"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart" width="30" height="30" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
                                 <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
@@ -39,25 +39,25 @@ export default function Nav() {
                             </svg></Link>
                         </NavbarItem>
                         {userRol == 'admin' && <NavbarItem className="hidden lg:flex">
-                            <Button className='font-semibold' as={Link} color="primary" to="/new-product" variant="flat">
+                            <Button className='font-semibold text-lg' as={Link} color="primary" to="/new-product" variant="flat">
                                 New product
                             </Button>
                         </NavbarItem>}
                         <NavbarItem className="hidden lg:flex">
-                            <Button className='font-semibold' as={Link} color="danger" to="/logout" variant="flat">
-                                LogOut
+                            <Button className='font-semibold text-lg' as={Link} color="danger" to="/logout" variant="flat">
+                                Log out
                             </Button>
                         </NavbarItem>
                     </NavbarContent>
                     : <NavbarContent justify="end">
                         <NavbarItem className="hidden lg:flex">
-                        <Button className='font-semibold' as={Link} color="primary" to="/login" variant="bordered">
-                                Login
+                            <Button className='font-semibold text-lg' as={Link} color="primary" to="/login" variant="bordered">
+                                Log in
                             </Button>
                         </NavbarItem>
                         <NavbarItem>
-                            <Button className='font-semibold' as={Link} color="primary" to="/register" variant="flat">
-                                Sign Up
+                            <Button className='font-semibold text-lg' as={Link} color="primary" to="/register" variant="flat">
+                                Sign up
                             </Button>
                         </NavbarItem>
                     </NavbarContent>}

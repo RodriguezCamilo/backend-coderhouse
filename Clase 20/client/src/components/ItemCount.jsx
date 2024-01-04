@@ -1,6 +1,6 @@
 import React from "react"
 import { useState } from "react"
-import { Button } from "@nextui-org/react";
+import { Button, Card } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
 
@@ -34,18 +34,22 @@ const ItemCount = ({ stock = 10, onAdd }) => {
     return (
         <>
             {stock > 0
-                ? <div className="flex flex-auto justify-center">
-                    {clicked ? <Button color="primary" as={Link} to={"/cart"}> Cart </Button> : (<div>
-                        <div className="flex flex-auto justify-center">
-                            <Button variant="bordered" isIconOnly size="sm" color={contador > 1 ? 'primary' : 'danger'} onClick={() => res()}>-</Button>
-                            <h4 className="mx-3 text-lg">{contador}</h4>
-                            <Button variant="bordered" isIconOnly size="sm" color={contador === stock ? 'danger' : 'primary'} onClick={() => sum()}>+</Button>
-                        </div>
-                        <br />
-                        <div>
-                            <Button color="primary" onClick={() => add()}>Add to cart</Button>
-                        </div>
-                    </div>)} </div>
+                ? <div className="flex w-full">
+                    {clicked ? <Button color="primary" as={Link} to={"/cart"}> Cart </Button> : (
+                        <div className="w-full mx-2">
+                            <Card className="flex flex-row justify-evenly items-center p-2 ">
+                                <div className="flex flex-row gap-4">
+                                    <Button variant="bordered" isIconOnly size="sm" color={contador > 1 ? 'primary' : 'danger'} onClick={() => res()}>-</Button>
+                                    <h4 className="font-semibold text-xl">{contador}</h4>
+                                    <Button variant="bordered" isIconOnly size="sm" color={contador === stock ? 'danger' : 'primary'} onClick={() => sum()}>+</Button>
+                                </div>
+                                <div>
+                                    <Button color="primary" className="font-semibold text-lg" onClick={() => add()}>Add to cart</Button>
+                                </div>
+
+                            </Card>
+                        </div>)}
+                </div>
                 : <h3 className="text-red-600 text-2xl">NO STOCK</h3>
             }
         </>

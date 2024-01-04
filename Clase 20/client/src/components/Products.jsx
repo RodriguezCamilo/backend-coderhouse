@@ -7,7 +7,7 @@ export default function Home() {
   const [itemList, setItemList] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/products/', {
+    fetch('http://localhost:4000/api/products/?limit=8', {
       method: 'GET',
       headers: {
         'Content-type': 'application/json'
@@ -19,8 +19,7 @@ export default function Home() {
           setItemList(data.respuesta.payload)
         }
       })
-  },
-    [])
+  },[])
 
   return (
     <ItemList items={{ itemList }} />
