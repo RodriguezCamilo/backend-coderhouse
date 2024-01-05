@@ -17,7 +17,6 @@ export default function Home() {
         if (response.ok) {
           let data = await response.json()
           setItemList(data.respuesta.payload)
-          console.log(data.respuesta.payload)
         }
       })
   },[])

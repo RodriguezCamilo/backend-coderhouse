@@ -10,10 +10,8 @@ export default function Carrousel({ imgs }) {
     const next = () => setCurr((curr) => (curr === imgs.length - 1 ? 0 : curr + 1))
 
     return (
-        <div className='overflow-hidden relative'>
-            <div className='flex transition-transform ease-out duration-200 place-items-center' style={{ transform: `translateX(-${curr * 100}%)` }}>
-                {imgs?.map((thumbnail, index) => <img src={thumbnail} alt="Foto del producto" className="aspect-square rounded-lg object-scale-down h-auto object-center m-2" key={index} />)}
-            </div>
+        <div className='w-full h-full relative'>
+            <div style={{backgroundImage: `url(${imgs[curr]})`}} className='h-full w-full bg-center bg-contain duration-200 bg-no-repeat'></div>
             <div className='absolute inset-0 flex items-center justify-between p-4'>
                 <Button onClick={prev} isIconOnly className='opacity-70 bg-white'><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg></Button>
                 <Button onClick={next} isIconOnly className='opacity-70 bg-white'><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg></Button>
@@ -24,8 +22,12 @@ export default function Carrousel({ imgs }) {
                         <div className={`transition-all w-3 h-3 bg-black rounded-full ${curr == i ? "p-2" : "bg-opacity-50"}`}/>
                     ))}
                 </div>
-
             </div>
         </div>
-    )
+            )
 }
+
+/*<div className='flex transition-transform ease-out duration-200 w-full' style={{ transform: `translateX(-${curr * 100}%)` }}>
+                {imgs?.map((thumbnail, index) => <img src={thumbnail} alt="Foto del producto" className={`aspect-square object-scale-down h-auto object-center m-2 duration-200 ${curr == index ? "visible" : "invisible"}`} key={index}/> )}
+            </div>
+            */

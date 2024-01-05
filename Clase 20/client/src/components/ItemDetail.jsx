@@ -1,7 +1,7 @@
 import ItemCount from "./ItemCount";
 import { Card,  CardBody } from "@nextui-org/react";
 import { LoggedContext } from '../context/LoggedContext.jsx';
-import Carrousel from "./Carrousel.jsx";
+import CarrouselContainer from "./CarrouselContainer.jsx";
 
 import { React, useContext } from 'react'
 
@@ -36,10 +36,10 @@ function ItemDetail({ _id, title, description, price, stock, thumbnail }) {
 
 
   return (
-    <Card className="self-center max-w-[90vw] min-h-[80vh]">
+    <Card className="self-center max-w-[90vw] min-h-[80vh] max-h-[80vh]">
       <CardBody className=' text-center grid grid-cols-2 p-8 gap-8'>
         <div className=" flex place-items-center">
-          <Carrousel imgs={thumbnail}/>
+          <CarrouselContainer imgs={thumbnail}/>
         </div>
         <div className="flex flex-col gap-4 justify-between text-balance">
           <h2 className='text-3xl font-bold text-balance'>{title}</h2>
