@@ -53,7 +53,7 @@ export default function Login() {
     return (
             <Card className=' py-3 self-center w-[30vw] max-h-[70vh] '>
                 <CardHeader className='flex justify-center'>
-                    <h1 className='text-2xl font-bold'>LogIn</h1>
+                    <h1 className='text-2xl font-bold'>Iniciar sesión</h1>
                 </CardHeader>
                 <CardBody className='flex justify-center overflow-hidden'>
 
@@ -61,19 +61,19 @@ export default function Login() {
 
                         <Input type="email" variant="underlined" isRequired name="email" label="Email" />
 
-                        <Input type="password" variant="underlined" isRequired name="password" label="Password" />
+                        <Input type="password" variant="underlined" isRequired name="password" label="Contraseña" />
 
                         {loginError && <Chip className='place-self-center' variant='bordered' color='danger'>{loginError}</Chip>}
 
-                        {progress ? <Spinner color='primary' className='place-self-center' /> : <Button className='place-self-center' color='primary' type="submit"  > LogIn </Button>}
+                        {progress ? <Spinner color='primary' className='place-self-center' /> : <Button className='place-self-center' color='primary' type="submit"  > Iniciar sesión </Button>}
 
                     </form>
-                    <Link size='sm' onClick={()=>navigate('/recovery-password')}>Forgot password</Link>
+                    <Link size='sm' onClick={()=>navigate('/recovery-password')}>Olvidé mi contraseña</Link>
                 </CardBody>
                 <Divider />
                 <CardFooter className='grid gap-4 justify-center'>
-                    <h3>Don't have an account?</h3>
-                    <Button className='place-self-center' color='primary' variant='ghost' onClick={() => navigate('/register')}>Register</Button>
+                    <h3>¿No tienes una cuenta?</h3>
+                    <Button className='place-self-center' color='primary' variant='ghost' onClick={() => navigate('/register')}>Registrarme</Button>
                 </CardFooter>
 
             </Card>

@@ -36,11 +36,11 @@ export const Logout = () => {
     return (
         <Card className=' py-3 self-center w-[30vw] max-h-[70vh] '>
             <CardHeader className='flex justify-center'>
-                <h1 className='text-2xl font-bold'>LogOut?</h1>
+                <h1 className='text-2xl font-bold'>¿Estas seguro que quieres cerrar sesión?</h1>
             </CardHeader>
             <CardBody className='flex flex-auto flex-row flex-wrap justify-around overflow-hidden'>
-                <Button className='place-self-center w-[45%]' color='danger' variant='ghost' onClick={handleClick}>Yes</Button>
-                <Button className='place-self-center w-[45%]' color='primary' variant='ghost' onClick={() => navigate('/')}>Back to home</Button>
+                <Button className='place-self-center w-[45%] text-lg' color='danger' variant='ghost' onClick={handleClick}>Si</Button>
+                <Button className='place-self-center w-[45%] text-lg' color='primary' variant='ghost' onClick={() => navigate('/')}>Volver al inicio</Button>
             </CardBody>
 
         </Card>

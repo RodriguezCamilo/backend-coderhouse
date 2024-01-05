@@ -18,12 +18,12 @@ export default function Nav() {
                 <NavbarContent className="hidden sm:flex gap-4 " justify="center">
                     <NavbarItem className='font-semibold text-xl hover:underline decoration-2 '>
                         <Link color="foreground" to="/">
-                            Home
+                            Inicio
                         </Link>
                     </NavbarItem>
                     <NavbarItem className='font-semibold text-xl hover:underline '>
                         <Link to="/products">
-                            Shop
+                            Tienda
                         </Link>
                     </NavbarItem>
                 </NavbarContent>
@@ -40,24 +40,24 @@ export default function Nav() {
                         </NavbarItem>
                         {userRol == 'admin' && <NavbarItem className="hidden lg:flex">
                             <Button className=' text-lg' as={Link} color="primary" to="/new-product" variant="flat">
-                                New product
+                                Agregar producto
                             </Button>
                         </NavbarItem>}
                         <NavbarItem className="hidden lg:flex">
                             <Button className=' text-lg' as={Link} color="danger" to="/logout" variant="flat">
-                                Log out
+                                Cerrar sesión
                             </Button>
                         </NavbarItem>
                     </NavbarContent>
                     : <NavbarContent justify="end">
                         <NavbarItem className="hidden lg:flex">
                             <Button className=' text-lg' as={Link} color="primary" to="/login" variant="bordered">
-                                Log in
+                                Iniciar sesión
                             </Button>
                         </NavbarItem>
                         <NavbarItem>
                             <Button className=' text-lg' as={Link} color="primary" to="/register" variant="flat">
-                                Sign up
+                                Registrarse
                             </Button>
                         </NavbarItem>
                     </NavbarContent>}

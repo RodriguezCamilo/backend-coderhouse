@@ -37,7 +37,7 @@ const ItemCount = ({ stock = 10, onAdd }) => {
                 ? <div className="flex w-full">
                     {clicked ? <Button color="primary" as={Link} to={"/cart"}> Cart </Button> : (
                         <div className="w-full mx-2">
-                            <Card className="flex flex-row justify-evenly items-center p-2 ">
+                            <Card className="flex flex-row justify-between items-center p-2 ">
                                 <div className="flex flex-row gap-4">
                                     <Button variant="bordered" isIconOnly size="sm" color={contador > 1 ? 'primary' : 'danger'} onClick={() => res()}><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /></svg></Button>
                                     <h4 className="font-semibold text-xl">{contador}</h4>
@@ -50,7 +50,7 @@ const ItemCount = ({ stock = 10, onAdd }) => {
                             </Card>
                         </div>)}
                 </div>
-                : <h3 className="text-red-600 text-2xl">NO STOCK</h3>
+                : <h3 className="text-red-600 text-2xl font-semibold">NO HAY STOCK</h3>
             }
         </>
     )

@@ -38,8 +38,9 @@ const NewProduct = () => {
         if (userRol !== "admin") navigate('/')
         const dataForm = new FormData(formRef.current)
         const data = Object.fromEntries(dataForm)
+        let img = data.thumbnail.replace(/ /g,'').split(",")
+        data.thumbnail = img
         const token = getCookiesByName('jwtCookie')
-        console.log(token)
         try {
             setProgress(true)
             await fetch('http://localhost:4000/api/products', {
@@ -69,24 +70,24 @@ const NewProduct = () => {
     return (
         <Card className=' py-3 self-center min-w-[30vw] max-h-[90vh] '>
             <CardHeader className='flex justify-center'>
-                <h1 className='text-2xl font-bold'>New Product</h1>
+                <h1 className='text-2xl font-bold'>Agregar un producto</h1>
             </CardHeader>
             <CardBody className='flex justify-center overflow-hidden'>
-                {isProduct ? <Chip className='place-self-center' variant='bordered' color='success'>Product loaded successfully!</Chip> : <form className='grid gap-3' id="new-product" onSubmit={handleSubmit} ref={formRef}>
+                {isProduct ? <Chip className='place-self-center' variant='bordered' color='success'>Producto agregado correctamente</Chip> : <form className='grid gap-3' id="new-product" onSubmit={handleSubmit} ref={formRef}>
 
-                    <Input type="text" variant="underlined" isRequired name="title" label="Title" />
+                    <Input type="text" variant="underlined" isRequired name="title" label="Titulo" />
 
-                    <Input type="text" variant="underlined" isRequired name="description" label="Description" />
+                    <Input type="text" variant="underlined" isRequired name="description" label="Descripción" />
 
-                    <Input type="number" variant="underlined" isRequired name="price" label="Price" />
+                    <Input type="number" variant="underlined" isRequired name="price" label="Precio" />
 
                     <Input type="number" variant="underlined" isRequired name="stock" label="Stock" />
 
-                    <Input type="text" variant="underlined" isRequired name="category" label="Category" />
+                    <Input type="text" variant="underlined" isRequired name="category" label="Categoría" />
 
                     <Input type="text" variant="underlined" isRequired name="code" label="Code" />
 
-                    <Input type="text" variant="underlined" name="thumbnail" label="Thumbnail" />
+                    <Input type="text" variant="underlined" name="thumbnail" label="Link de las fotos del producto, separadas por una coma ( , )" />
 
                     {progress ? <Spinner color='primary' className='place-self-center' /> : <Button className='place-self-center' color='primary' type="submit">Submit</Button>}
 

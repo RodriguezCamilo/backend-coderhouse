@@ -49,7 +49,7 @@ function PasswordRecovery() {
   return (
     <Card className=' py-3 self-center w-[30vw] max-h-[70vh] '>
                 <CardHeader className='flex justify-center'>
-                    <h1 className='text-2xl font-bold'>Recovery Password</h1>
+                    <h1 className='text-2xl font-bold'>Reestablecer contraseña</h1>
                 </CardHeader>
                 <CardBody className='flex justify-center overflow-hidden'>
 
@@ -57,15 +57,15 @@ function PasswordRecovery() {
 
                         <Input type="email" variant="underlined" isRequired name="email" label="Email" />
 
-                        {progress ? <Spinner color='primary' className='place-self-center' /> : <Button className='place-self-center' color='primary' type="submit"  > Send Email </Button>}
+                        {progress ? <Spinner color='primary' className='place-self-center' /> : <Button className='place-self-center' color='primary' type="submit"  > Enviar email </Button>}
                         {recovery && <Chip className='place-self-center' variant='bordered' color='success'>{recovery}</Chip>}
 
                     </form>
                 </CardBody>
                 <Divider />
                 <CardFooter className='grid gap-4 justify-center'>
-                    <h3>Remember now?</h3>
-                    <Button className='place-self-center' color='primary' variant='ghost' onClick={() => navigate('/login')}>LogIn</Button>
+                    <h3>¿Ya recuerdas?</h3>
+                    <Button className='place-self-center' color='primary' variant='ghost' onClick={() => navigate('/login')}>Iniciar sesión</Button>
                 </CardFooter>
 
             </Card>

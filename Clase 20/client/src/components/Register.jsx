@@ -49,30 +49,30 @@ const Register = () => {
     return (
         <Card className='py-3 self-center min-w-[30vw] max-h-[90vh]'>
             <CardHeader className='flex justify-center'>
-                <h1 className='text-2xl font-bold'>Register</h1>
+                <h1 className='text-2xl font-bold'>Registrarse</h1>
             </CardHeader>
             <CardBody className='flex justify-center overflow-hidden'>
                 <form className='grid gap-3' id="register" onSubmit={handleSubmit} ref={formRef}>
 
-                    <Input type="text" variant="underlined" isRequired name="firstName" label="Name" />
+                    <Input type="text" variant="underlined" isRequired name="firstName" label="Nombre" />
 
-                    <Input type="text" variant="underlined" isRequired name="lastName" label="Last Name" />
+                    <Input type="text" variant="underlined" isRequired name="lastName" label="Apellido" />
 
-                    <Input type="number" variant="underlined" isRequired name="age" label="Age" />
+                    <Input type="number" variant="underlined" isRequired name="age" label="Edad" />
 
                     <Input type="email" variant="underlined" isRequired name="email" label="Email" />
 
-                    <Input type="password" variant="underlined" isRequired name="password" label="Password" />
+                    <Input type="password" variant="underlined" isRequired name="password" label="Contraseña" />
 
-                    {progress ? <Spinner color='primary' className='place-self-center' /> : <Button className='place-self-center' color='primary' type="submit">Register</Button>}
+                    {progress ? <Spinner color='primary' className='place-self-center' /> : <Button className='place-self-center' color='primary' type="submit">Registrarme</Button>}
 
                     {loginError && <Chip className='place-self-center' variant='bordered' color='danger'>{loginError}</Chip>}
                 </form>
             </CardBody>
             <Divider />
             <CardFooter className='grid gap-3'>
-                <h3>Have an account?</h3>
-                <Button className='place-self-center' color='primary' variant='ghost' onClick={() => navigate('/login')}>LogIn</Button>
+                <h3>¿Tienes una cuenta?</h3>
+                <Button className='place-self-center' color='primary' variant='ghost' onClick={() => navigate('/login')}>Iniciar sesión</Button>
             </CardFooter>
         </Card>
     );
