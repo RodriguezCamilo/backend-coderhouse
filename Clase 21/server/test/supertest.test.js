@@ -13,7 +13,7 @@ let cookie = {}
 describe('Test Users Session api/session', function () {
     this.timeout(15000)
 
-    /*it("Ruta: api/session/register con metodo POST", async () => {
+    it("Ruta: api/session/register con metodo POST", async () => {
         const newUser = {
             firstName: "Kam",
             lastName: "Dev",
@@ -25,7 +25,7 @@ describe('Test Users Session api/session', function () {
         const { _body } = await requester.post('/api/session/register').send(newUser)
 
         expect(_body).to.be.ok
-    })*/
+    })
 
     it("Ruta: api/session/login con metodo POST", async () => {
         const user = {
