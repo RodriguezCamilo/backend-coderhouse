@@ -15,6 +15,7 @@ const initializePassport = () => {
 
     const cookieExtractor = req =>{
         const token = req.headers.authorization ? req.headers.authorization : {}
+        console.log(req.headers)
         return token
     }
 
